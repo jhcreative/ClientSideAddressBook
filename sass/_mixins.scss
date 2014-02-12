@@ -1,0 +1,82 @@
+// ADDRESS BOOK MIXINS
+
+// BREAKPOINTS
+@mixin breakpoint($point) {
+	// widescreen
+	@if $point == widescreen {
+		@media(min-width: 1024px) { @content; }
+	}
+
+	// standard desktops
+	@if $point == desktop {
+		@media(min-width: 1024px) { @content; }
+	}
+
+	// tablet-landscape
+	@if $point == tablet-landscape {
+		@media(min-width: 1024px) { @content; }
+	}
+
+	// tablet-portrait
+	@if $point == tablet-portrait {
+		@media(min-width: 720px) and (max-width: 1023px) { @content; }
+	}
+
+	// mobile
+	@if $point == mobile {
+		@media(max-width: 719px) { @content; }
+	}
+
+	// non-retina iphones - all
+	@if $point == old-iphones {
+		@media(max-width: 585px) { @content; }
+	}
+
+	// 320px only
+	@if $point == only320 {
+		@media(width: 320px) { @content; }
+	}
+}
+
+
+// COMMON BOX
+@mixin commonBox {
+	width: 300px;
+	height: auto;
+	display: inline-block;
+	float: left;
+	padding: 10px;
+	margin: 0 20px 20px 0;
+	border: 1px solid #999;
+	position: relative;
+}
+
+
+
+
+
+// TRANSITIONS & EFFECTS
+@mixin slideIn {
+	-webkit-transform: translate3d(-100%, 0, 0);
+	-moz-transform: translate3d(-100%, 0, 0);
+	-ms-transform: translate3d(-100%, 0, 0);
+	-o-transform: translate3d(-100%, 0, 0);
+	transform: translate3d(-100%, 0, 0);
+}
+
+@mixin slideInAction {
+	-webkit-transition: all 1s;
+    -moz-transition: all 1s;
+    -ms-transition: all 1s;
+    -o-transition: all 1s;
+    transition: all 1s;
+}
+
+@mixin buttonHover {
+    -webkit-transition: opacity 0.75s;
+    -moz-transition: opacity 0.75s;
+    -ms-transition: opacity 0.75s;
+    -o-transition: opacity 0.75s;
+    transition: opacity 0.75s;
+}
+
