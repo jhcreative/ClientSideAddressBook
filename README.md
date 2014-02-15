@@ -26,7 +26,7 @@ I've written custom stuff for phone numbers, credit cards, etc on complex forms 
 7. I used SASS to style because its whats fastest for me and what I'm most invested in these days as a CSS tool.
 
 
-8. This is built with repsonsive styles because I've made a personal practice of doing everything with at least a repsonsive foundation so that 1) nothing I make now shouldn't ever have to be trashed and redone from the ground up later on becuase of its own shortcomings and 2) because I'm still making the move in my head to 'mobile first' and can use all the practice I can get :)
+8. This is built with repsonsive styles because I've made a personal practice of doing everything with at least a repsonsive foundation so that 1) nothing I make now shouldn't ever have to be trashed and redone from the ground up later on becuase of its own shortcomings and 2) because I'm still making the move in my head to 'mobile first' and can use all the practice I can get :) There's still some detail missing from tablet and phone view that I would do next if continuing on.
 
 
 9. The javascript insertion method is based on something by Paul Irish that a peer turned me onto at Sapient.  I've been adapting it for a slightly different purpose in the dev tool I'm making for ESPN, and just copied that whole structure over as a means of 1) not changing my current context too much as I took this on and 2) giving myself another environment/purpose to use it in.
