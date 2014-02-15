@@ -11,9 +11,8 @@ var AB = {
 
 		// 'SAVED CONTACTS' OBJECT
 		var getExisting = localStorage.getItem('savedContacts');
-		console.log(getExisting.length);
 
-		if(getExisting.length > 1) {
+		if(getExisting !== null && getExisting.length > 1) {
 			//alert('existing');
 			// intentionally global
 			savedContacts = JSON.parse(getExisting);
