@@ -8,10 +8,21 @@ var AB = {
 	common : {
 		init : function() {
 
+
 		// 'SAVED CONTACTS' OBJECT
 		var getExisting = localStorage.getItem('savedContacts');
-		savedContacts = JSON.parse(getExisting);
-		//console.log(savedContacts);
+		console.log(getExisting.length);
+
+		if(getExisting.length > 1) {
+			//alert('existing');
+			// intentionally global
+			savedContacts = JSON.parse(getExisting);
+		} else {
+			// intentionally global
+			//alert('not-existing');
+			savedContacts = [];
+		}
+		console.log(savedContacts);
 	    	
 		}
 	// end common
@@ -20,7 +31,7 @@ var AB = {
 		init : function() {
 
 			// DISPLAY EXISTING CONTACTS
-			if(savedContacts.length > 0) {
+			if($jQ(savedContacts).length > 0) {
 				$jQ('.display_contacts').find('p').remove();
 				AB.displayContacts();
 
@@ -109,7 +120,7 @@ var AB = {
 				// switch form headlines
 	    		$jQ('h2.add-form').addClass('off');
 				$jQ('h2.edit-form').removeClass('off'); 
-				
+
 				// force scroll to top
   				$jQ("html, body").animate({ scrollTop: 0 }, "fast");
  				
