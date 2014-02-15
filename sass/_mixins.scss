@@ -52,6 +52,15 @@
 }
 
 
+// CONSISTENT BUTTONS
+@mixin abButtons {
+	-webkit-appearance: button;
+	-moz-appearance: button;
+	appearance: button;
+	font-size: 11px !important;
+	line-height: 11px !important;
+	padding: 5px 10px 5px 10px !important;
+}
 
 
 

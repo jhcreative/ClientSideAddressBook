@@ -18,7 +18,8 @@ section, div, fieldset {
 
 /* line 20, ../sass/screen.scss */
 .wrapper {
-  width: 80%;
+  width: auto;
+  max-width: 80%;
   min-height: 450px;
   margin: 20px auto 20px auto;
   background: #fff;
@@ -28,55 +29,71 @@ section, div, fieldset {
 @media (min-width: 720px) and (max-width: 1023px) {
   /* line 20, ../sass/screen.scss */
   .wrapper {
-    width: 97.5%;
+    max-width: 97.5%;
     padding: 20px;
   }
 }
 @media (max-width: 719px) {
   /* line 20, ../sass/screen.scss */
   .wrapper {
-    width: 100%;
+    max-width: 100%;
     padding: 10px;
     margin: 0;
   }
 }
 
-/* line 41, ../sass/screen.scss */
+/* line 42, ../sass/screen.scss */
 h1, h2, h3, h4, h5, h6 {
   margin: 0;
   padding: 0;
   text-transform: uppercase;
 }
 
-/* line 47, ../sass/screen.scss */
+/* line 48, ../sass/screen.scss */
 h1 {
   font-size: 20px;
   line-height: 20px;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
+  position: relative;
+  z-index: 200;
 }
 
-/* line 53, ../sass/screen.scss */
+/* line 56, ../sass/screen.scss */
 h2 {
-  font-size: 16px;
-  line-height: 16px;
-  margin-bottom: 15px;
+  font-size: 12px;
+  line-height: 12px;
+  margin-bottom: 40px;
+  color: #999;
+  padding-top: 5px;
 }
 
-/* line 60, ../sass/screen.scss */
+/* line 64, ../sass/screen.scss */
 .off {
   display: none;
 }
 
-/* line 65, ../sass/screen.scss */
+/* line 69, ../sass/screen.scss */
 .ab_display-section {
   display: block;
   width: 100%;
+  height: auto;
   overflow: hidden;
   *zoom: 1;
   position: relative;
   padding-bottom: 30px;
+  opacity: 1;
+  -webkit-transition: opacity 0.75s;
+  -moz-transition: opacity 0.75s;
+  -ms-transition: opacity 0.75s;
+  -o-transition: opacity 0.75s;
+  transition: opacity 0.75s;
 }
-/* line 72, ../sass/screen.scss */
+/* line 79, ../sass/screen.scss */
+.ab_display-section .display_contacts {
+  overflow: hidden;
+  *zoom: 1;
+}
+/* line 81, ../sass/screen.scss */
 .ab_display-section .ab_contact {
   width: 300px;
   height: auto;
@@ -87,7 +104,7 @@ h2 {
   border: 1px solid #999;
   position: relative;
 }
-/* line 75, ../sass/screen.scss */
+/* line 84, ../sass/screen.scss */
 .ab_display-section .ab_contact button {
   opacity: 0;
   -webkit-transition: opacity 0.75s;
@@ -97,26 +114,32 @@ h2 {
   transition: opacity 0.75s;
   position: absolute;
   top: 5px;
+  -webkit-appearance: button;
+  -moz-appearance: button;
+  appearance: button;
+  font-size: 11px !important;
+  line-height: 11px !important;
+  padding: 5px 10px 5px 10px !important;
 }
-/* line 81, ../sass/screen.scss */
+/* line 91, ../sass/screen.scss */
 .ab_display-section .ab_contact .remove-contact {
   right: 10px;
 }
-/* line 82, ../sass/screen.scss */
+/* line 92, ../sass/screen.scss */
 .ab_display-section .ab_contact .edit-contact {
   right: 80px;
 }
 @media (max-width: 719px) {
-  /* line 72, ../sass/screen.scss */
+  /* line 81, ../sass/screen.scss */
   .ab_display-section .ab_contact {
     height: auto;
   }
 }
-/* line 91, ../sass/screen.scss */
+/* line 101, ../sass/screen.scss */
 .ab_display-section .ab_contact:hover button {
   opacity: 1;
 }
-/* line 95, ../sass/screen.scss */
+/* line 105, ../sass/screen.scss */
 .ab_display-section .ab_label,
 .ab_display-section .address-label {
   text-transform: uppercase;
@@ -128,20 +151,20 @@ h2 {
   margin-right: 5px;
   font-weight: bold;
 }
-/* line 105, ../sass/screen.scss */
+/* line 115, ../sass/screen.scss */
 .ab_display-section .ab_label.inline {
   display: inline;
 }
-/* line 107, ../sass/screen.scss */
+/* line 117, ../sass/screen.scss */
 .ab_display-section .address-label,
 .ab_display-section .one-line {
   margin: 10px 5px 3px 0;
 }
-/* line 109, ../sass/screen.scss */
+/* line 119, ../sass/screen.scss */
 .ab_display-section .ab_label:first-child {
   display: none;
 }
-/* line 110, ../sass/screen.scss */
+/* line 120, ../sass/screen.scss */
 .ab_display-section .ab_content:nth-child(2) {
   font-size: 16px;
   line-height: 16px;
@@ -151,7 +174,7 @@ h2 {
   display: block;
   width: 100%;
 }
-/* line 120, ../sass/screen.scss */
+/* line 130, ../sass/screen.scss */
 .ab_display-section .ab_content {
   display: inline-block;
   font-size: 14px;
@@ -159,48 +182,70 @@ h2 {
   color: #000;
 }
 
-/* line 127, ../sass/screen.scss */
+/* line 137, ../sass/screen.scss */
 .ab_display-section > button {
   position: absolute;
-  bottom: 0;
-  left: 0;
+  display: block;
+  width: auto;
+  top: 0px;
+  left: 180px;
+  z-index: 20;
+  -webkit-appearance: button;
+  -moz-appearance: button;
+  appearance: button;
+  font-size: 11px !important;
+  line-height: 11px !important;
+  padding: 5px 10px 5px 10px !important;
 }
 
-/* line 136, ../sass/screen.scss */
+/* line 149, ../sass/screen.scss */
+.ab_display-section.editing {
+  opacity: 0;
+}
+
+/* line 154, ../sass/screen.scss */
 .ab_edit-section {
+  margin-left: -1px;
   width: 100%;
   position: absolute;
-  top: 70px;
+  top: 50px;
   left: 100%;
   height: auto;
   background: #fff;
   padding: 30px;
   z-index: 10;
   opacity: 0;
+  z-index: 100;
   -webkit-transition: all 1s;
   -moz-transition: all 1s;
   -ms-transition: all 1s;
   -o-transition: all 1s;
   transition: all 1s;
 }
-/* line 148, ../sass/screen.scss */
+/* line 171, ../sass/screen.scss */
 .ab_edit-section .submit {
   position: absolute;
-  top: 26px;
-  left: 180px;
+  top: 30px;
+  left: 190px;
   width: auto;
+  -webkit-appearance: button;
+  -moz-appearance: button;
+  appearance: button;
+  font-size: 11px !important;
+  line-height: 11px !important;
+  padding: 5px 10px 5px 10px !important;
 }
-/* line 154, ../sass/screen.scss */
+/* line 178, ../sass/screen.scss */
 .ab_edit-section form {
   width: 700px;
 }
 @media (max-width: 719px) {
-  /* line 154, ../sass/screen.scss */
+  /* line 178, ../sass/screen.scss */
   .ab_edit-section form {
     width: 300px;
   }
 }
-/* line 162, ../sass/screen.scss */
+/* line 186, ../sass/screen.scss */
 .ab_edit-section fieldset {
   width: 300px;
   height: auto;
@@ -211,23 +256,23 @@ h2 {
   border: 1px solid #999;
   position: relative;
 }
-/* line 165, ../sass/screen.scss */
+/* line 189, ../sass/screen.scss */
 .ab_edit-section #name-fieldset {
   width: 620px;
 }
 @media (max-width: 719px) {
-  /* line 165, ../sass/screen.scss */
+  /* line 189, ../sass/screen.scss */
   .ab_edit-section #name-fieldset {
     width: 300px;
   }
 }
-/* line 172, ../sass/screen.scss */
+/* line 196, ../sass/screen.scss */
 .ab_edit-section h3 {
   font-size: 16px;
   line-height: 16px;
   margin-bottom: 20px;
 }
-/* line 177, ../sass/screen.scss */
+/* line 201, ../sass/screen.scss */
 .ab_edit-section label {
   color: #999;
   font-size: 11px;
@@ -236,7 +281,7 @@ h2 {
   display: block;
   margin-top: 5px;
 }
-/* line 185, ../sass/screen.scss */
+/* line 209, ../sass/screen.scss */
 .ab_edit-section input {
   font-size: 14px;
   line-height: 14px;
@@ -245,38 +290,44 @@ h2 {
   margin-bottom: 10px;
   padding: 3px 10px 3px 10px;
 }
-/* line 193, ../sass/screen.scss */
+/* line 217, ../sass/screen.scss */
 .ab_edit-section input.addl-entry {
+  -webkit-appearance: button;
+  -moz-appearance: button;
+  appearance: button;
+  font-size: 11px !important;
+  line-height: 11px !important;
+  padding: 5px 10px 5px 10px !important;
   width: auto;
 }
-/* line 194, ../sass/screen.scss */
+/* line 222, ../sass/screen.scss */
 .ab_edit-section ::-webkit-input-placeholder {
   font-size: 11px;
   color: #ddd;
   font-style: italic;
 }
-/* line 199, ../sass/screen.scss */
+/* line 227, ../sass/screen.scss */
 .ab_edit-section :-moz-placeholder {
   /* Firefox 18- */
   font-size: 11px;
   color: #ddd;
   font-style: italic;
 }
-/* line 205, ../sass/screen.scss */
+/* line 233, ../sass/screen.scss */
 .ab_edit-section ::-moz-placeholder {
   /* Firefox 19+ */
   font-size: 11px;
   color: #ddd;
   font-style: italic;
 }
-/* line 211, ../sass/screen.scss */
+/* line 239, ../sass/screen.scss */
 .ab_edit-section :-ms-input-placeholder {
   font-size: 11px;
   color: #ddd;
   font-style: italic;
 }
 
-/* line 217, ../sass/screen.scss */
+/* line 245, ../sass/screen.scss */
 #entry-form-section.in-use {
   opacity: 1;
   -webkit-transform: translate3d(-100%, 0, 0);

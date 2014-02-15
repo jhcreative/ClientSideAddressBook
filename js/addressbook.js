@@ -109,9 +109,14 @@ var AB = {
 				// switch form headlines
 	    		$jQ('h2.add-form').addClass('off');
 				$jQ('h2.edit-form').removeClass('off'); 
+				
+				// force scroll to top
+  				$jQ("html, body").animate({ scrollTop: 0 }, "fast");
+ 				
 
-				// slide in form
+				// slide in form, toggle display
 				$jQ('#entry-form-section').toggleClass('in-use');
+				$jQ('#entry-display-section').toggleClass('editing');
 
 			});
 
@@ -125,8 +130,12 @@ var AB = {
 	    		$jQ('h2.add-form').removeClass('off');
 				$jQ('h2.edit-form').addClass('off'); 
 
-				// slide in form 
+				// force scroll to top
+  				$jQ("html, body").animate({ scrollTop: 0 }, "fast");
+ 				
+				// slide in form, toggle display
 				$jQ('#entry-form-section').toggleClass('in-use');
+				$jQ('#entry-display-section').toggleClass('editing');
 			});
 
 
@@ -137,17 +146,15 @@ var AB = {
 	"ab_edit-section" : {
 		init : function() {
 
-			// ADD SOME STUFF
-			$jQ('nothing').addClass('nothing');
 			// SUBMIT ACTION
-			$jQ('#save-contact-button').on('click', function(e){
-				e.preventDefault();
-
+    		$jQ('form').submit(function(e) {
+    			e.preventDefault();
+      
 				// slide out form 
 				$jQ('#entry-form-section').toggleClass('in-use');
 
 				// do the work
-				var thisForm = $jQ(this).parents('#entry-form'),
+				var thisForm = $jQ('#entry-form'),
 					theseFields = thisForm.find('fieldset'),
 					saveObject = {};
 
@@ -170,11 +177,16 @@ var AB = {
 				});
 				savedContacts.push(saveObject);
 
+
 				if ('localStorage' in window && window['localStorage'] !== null) {
 					// save new contact
 					localStorage.setItem('savedContacts', JSON.stringify(savedContacts));
-					// refresh page
-					location.reload(true);
+					//alert('Saved!');
+					// now refresh page
+					setTimeout(function(){
+						location.reload(true);
+					}, 1000)
+					
 				} else {
 					alert('Sorry, local storage not available in this browser.')
 				}

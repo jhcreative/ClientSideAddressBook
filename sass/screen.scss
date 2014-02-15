@@ -18,7 +18,8 @@ section, div, fieldset {
 	box-sizing: border-box;
 }
  .wrapper { 
- 	width: 80%;
+ 	width: auto;
+ 	max-width: 80%;
  	min-height: 450px;
  	margin: 20px auto 20px auto;
  	background: #fff;
@@ -27,12 +28,12 @@ section, div, fieldset {
  	//overflow: hidden;
 
  	@include breakpoint(tablet-portrait){
- 		width: 97.5%;
+ 		max-width: 97.5%;
  		padding: 20px; 
  	}
 
  	 @include breakpoint(mobile){
- 		width: 100%;
+ 		max-width: 100%;
  		padding: 10px; 
  		margin: 0;
  	}
@@ -47,15 +48,18 @@ section, div, fieldset {
  h1 { 
  	font-size: 20px;
  	line-height: 20px;
- 	margin-bottom: 20px; 
+ 	margin-bottom: 30px;
+ 	position: relative;
+ 	z-index: 200; 
  }
 
- h2 {
- 	font-size: 16px;
- 	line-height: 16px;
- 	margin-bottom: 15px;
-
- }
+	h2 { 
+		font-size: 12px;
+		line-height: 12px; 
+		margin-bottom: 40px;
+		color: #999;
+		 padding-top: 5px;
+	}
 
  .off { display: none; }
 
@@ -65,9 +69,14 @@ section, div, fieldset {
 .ab_display-section {
 	display: block;
 	width: 100%;
+	height: auto;
 	@include clearfix();
 	position: relative;
 	padding-bottom: 30px;
+	opacity: 1;
+	@include buttonHover;
+
+	.display_contacts { @include clearfix();}
 
 	.ab_contact {
 		@include commonBox;	
@@ -77,6 +86,7 @@ section, div, fieldset {
 			@include buttonHover;
 			position: absolute;
 			top: 5px; 
+			@include abButtons;
 		}
 		.remove-contact { right: 10px; }
 		.edit-contact { right: 80px; }
@@ -126,29 +136,43 @@ section, div, fieldset {
 }
 .ab_display-section > button { 
 	position: absolute;
-	bottom: 0; left: 0;
-}
+	display: block;
+	width: auto;
+	top: 0px; left: 180px;
+	z-index: 20;
+	@include abButtons;
 
+	@include breakpoint(iphone4) {
+		left: auto; right: 10px;
+	}
+}
+.ab_display-section.editing { opacity: 0; }
 
 
 
  // CONTACT FORM
 .ab_edit-section {
+	margin-left: -1px;
+
  	width: 100%;
  	position: absolute;
- 	top: 70px;
+ 	top: 50px;
  	left: 100%;
  	height: auto;
  	background: #fff;
  	padding: 30px;
  	z-index: 10; 
  	opacity: 0;
+ 	z-index: 100;
  	@include slideInAction;
+
+ 	h2 {}
 
  	.submit { 
  		position: absolute;
- 		top: 26px; left: 180px;
+ 		top: 30px; left: 190px;
  		width: auto;
+ 		@include abButtons;
  	}
 
  	form { 
@@ -190,7 +214,11 @@ section, div, fieldset {
  		margin-bottom: 10px; 
  		padding: 3px 10px 3px 10px;
  	}
- 	input.addl-entry { width: auto; }
+ 	input.addl-entry { 
+ 		@include abButtons;
+ 		width: auto; 
+ 	}
+
  	::-webkit-input-placeholder {
    		font-size: 11px;
    		color: #ddd;
