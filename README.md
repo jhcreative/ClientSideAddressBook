@@ -31,7 +31,7 @@ I've written custom stuff for phone numbers, credit cards, etc on complex forms 
 
 9. The javascript insertion method is based on something by Paul Irish that a peer turned me onto at Sapient.  I've been adapting it for a slightly different purpose in the dev tool I'm making for ESPN, and just copied that whole structure over as a means of 1) not changing my current context too much as I took this on and 2) giving myself another environment/purpose to use it in.
 
-10. This should be pretty cross-browser as far as it goes, but I confess to not testing it on anything but Chrome, which I develop in using Sublime as a text editor and MAMP as local server environment.
+10. This should be pretty cross-browser as far as it goes, but I confess to not testing it on anything but Chrome, which I develop in using Sublime as a text editor and MAMP as local server environment. I did test on my live server andnot just locally: http://johnhiemstra.com/addressbook .  Had to add a sanity check on the savedContacts object to make it work, my local environment not so stringent, apparently.
 
 11. Stuff that still sucks: no organization/pagination of displayed contacts. Would at least alphabetize next.
 
@@ -40,6 +40,8 @@ I've written custom stuff for phone numbers, credit cards, etc on complex forms 
 13. Stuff that still sucks: when editing a current item, need to move the event of removing old entry from the object to be rewritten in localStorage.  In combo with #12 above, makes ripe opportunity to delete contacts by mistake.
 
 14. Stuff that still sucks: No search/sort feature yet.  Thinking I would use isotope.js next and then un-force the contact box height matching for a masonry type layout.
+
+15. Stuff that still sucks: relies on location.reload to rewrite display after save. Next would do without.
 
 
 
